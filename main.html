@@ -1,0 +1,187 @@
+       <!DOCTYPE html>
+       <html lang="en">
+       <head>
+           <meta charset="UTF-8">
+           <title>Main Page </title>
+       </head>
+       <body>
+        
+    <div ng-controller="mainController">
+    
+    
+<div class="container">
+ <br><br>
+  <h1>Contact Application</h1><hr>
+     <div class="container"> 
+        <br><br>
+          <button type="button" class="btn btn-success btn-lg pull-right" data-toggle="modal" data-target="#myModal">addNew</button>
+    </div><br><br><br>         
+  <table class="table table-striped">
+    <thead>
+      <tr>
+       <th>Index</th>
+        <th>Firstname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="human in person">
+       <td>{{$index+1}}</td>
+        <td>{{human.name}}</td>
+        <td>{{human.email}}</td>
+          <td><button type="button" class="btn btn-info btn-lg pull-right"  ng-click="editdata(human)"data-toggle="modal" data-target="#editdata">EditData</button></td>
+          <td><button type="button" class="btn btn-danger btn-lg pull-right" ng-click="deldata(human)" data-toggle="modal" data-target="#deldata">DeleteData</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+   
+   
+   
+   
+   
+   
+   
+   <div class="container">
+   
+   
+   
+<!--  Add new item-->
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">AddNew</h4>
+        </div>
+        <div class="modal-body">
+          
+          
+<div class="container">
+  <h2>Add New User</h2>
+  <form >
+    <div class="form-group">
+      <label for="email">Name</label>
+      <input type="text" id="email" class="form-control"  ng-model="newUser.name" placeholder="Enter name" name="email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Email</label>
+      <input type="text"  id="pwd" class="form-control" ng-model="newUser.email" placeholder="Enter email" name="pwd">
+    </div>
+    <button type="submit" ng-click="savedata()" data-dismiss="modal" class="btn btn-default">Save</button>
+  </form>
+</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+<!--     edit data-->
+     
+
+     
+      <div class="container">
+
+  <!-- Modal -->
+  <div class="modal fade" id="editdata" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Element</h4>
+        </div>
+        <div class="modal-body">
+          
+          
+<div class="container">
+  <h2>Edit Data</h2>
+  <form>
+    <div class="form-group">
+      <label for="email">Name</label>
+      <input type="text" id="email"  class="form-control" ng-model="clickeduser.name" placeholder="Enter name" name="email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Email</label>
+      <input type="text"  id="pwd"   class="form-control" ng-model="clickeduser.email" placeholder="Enter email" name="pwd">
+    </div>
+    <button type="submit"  ng-click="updatedata()" data-dismiss="modal"class="btn btn-default">Save</button>
+  </form>
+</div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+     
+     
+    
+     
+     
+     
+<!--    delete data -->
+     
+     
+     
+     
+      <div class="container">
+
+  <!-- Modal -->
+  <div class="modal fade" id="deldata" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Delete data</h4>
+        </div>
+        <div class="modal-body">
+          
+          
+<div class="container">
+  <h2>Delete Item</h2>
+  <form>
+    <div class="form-group">
+      <h1>You gonna delete current Element</h1>
+    </div>
+    <button type="submit" ng-click="deleteuser()" data-dismiss="modal" class="btn btn-default">Delete</button>
+  </form>
+</div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+      
+      
+   
+    </div>
+    
+   
+     
+       </body>
+       </html>
